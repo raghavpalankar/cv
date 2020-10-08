@@ -138,7 +138,7 @@ h3{
 }
 
 .top-cloud{
-    width: 150px;
+    max-width:100%;
     position: absolute;
     right: 300px;
     top: 30px;
@@ -147,6 +147,7 @@ h3{
 
 .bottom-cloud{
     position: absolute;
+    max-width:100%;	
 
 }
 
