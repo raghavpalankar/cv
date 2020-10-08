@@ -28,6 +28,7 @@ h1{
     font-style: normal;
     font-weight: 100;
     font-size: 5.625rem;
+    max-width:100%;
     
 
 }
@@ -53,6 +54,7 @@ h3{
 }
 .programmer{
     font-size: 1.5rem;
+     max-width:100%;
 }
 
 .skill-row{
