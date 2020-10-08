@@ -104,7 +104,7 @@ h3{
 
 
 .top-container {
-    
+    max-width:100%;
     background-color: #EAF6F6;
     margin-right:0 ;
     margin-bottom: 0;
