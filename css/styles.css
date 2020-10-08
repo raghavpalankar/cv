@@ -114,6 +114,7 @@ h3{
 }
 .mountain{
     vertical-align: middle;
+    max-width: 100%;	
 }
 .middle-container {
     background: color 0;
