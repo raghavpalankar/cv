@@ -1,0 +1,36 @@
+body{
+    background-image:url(/airpoll.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#pHead{
+    text-align:center;
+}
+
+#listInfo{
+    list-style-type: none;
+}
+
+li{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+
+#try{
+    width: 150px;
+  height: 30px;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #6c6c6c, -20px -20px 60px #ffffff;
+}
+
+#trya{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}

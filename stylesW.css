@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(https://lh5.googleusercontent.com/proxy/md1N4U7P66pLOhbYx2w2KHVFcTZ-9RsVV-oliH5K4qBpivrwDzpK7SKLIhrEGXY4D-Jh-BVzx8d3Lvdci890C-10iZPQX21eJqqZbCRe9xFYwCvp2zX-pZb7IplDCKDo=s0-d);
+
+  margin: 0;
+  padding: 0;
+}
+
+#cityVal {
+  width: 240px;
+  height: 30px;
+  border-radius: 50px;
+  background: #e0e0e0;
+  border: 1px solid white;
+}
+
+#output {
+  margin-top: 20px;
+  list-style-type: none;
+  display:inline-block;
+}
+#output1 {
+  margin-top: 20px;
+  list-style-type: none;
+  display:inline-block;
+}
+
+#main {
+  margin-top: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+a {
+  line-height: 1em;
+  display: inline-block;
+  text-decoration: none;
+  margin: 20px;
+  color: white;
+}
+#submit {
+  border-radius: 108px;
+  background: #e0e0e0;
+  box-shadow: 5px 5px 60px #c7c7c7, -5px -5px 60px #f9f9f9;
+  background-color: transparent;
+}
+#links_id {
+  display: inline-block;
+}
+
+.top-links {
+  margin: 10px;
+  text-align: right;
+  font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
+  line-height: 1.52857143;
+  color: #197163;
+}
+
+h1 {
+  color: lightskyblue;
+  display: inline-block;
+}
+
+.top-links {
+  margin: 10px;
+  text-align: right;
+  font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
+  line-height: 1.52857143;
+  color: #197163;
+}
+
+h1 {
+  color: lightskyblue;
+  display: inline-block;
+}
+
+.top-links {
+  margin: 10px;
+  text-align: right;
+  font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
+  line-height: 1.52857143;
+  color: #197163;
+}
+
+h1 {
+  color: lightskyblue;
+  display: inline-block;
+}
+
+.top-links {
+  margin: 10px;
+  text-align: right;
+  font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
+  line-height: 1.52857143;
+  color: #197163;
+}
+
+h1 {
+  color: lightskyblue;
+  display: inline-block;
+}
+
+.top-links {
+  margin: 10px;
+  text-align: right;
+  font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
+  line-height: 1.52857143;
+  color: #197163;
+}
+
+h1 {
+  color: lightskyblue;
+}
+.wdetails{
+  position: absolute;
+  top:60%;
+  left:28%
+}

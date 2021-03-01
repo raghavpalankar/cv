@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="stylesW.css" />
+</head>
+
+<body>
+    <header class='top-links'>
+       
+        <a class='aba' href='graph.html'>Graph</a> 
+        <a class='aba' href='geocity.html'>Pollution Stat</a>
+        
+    </header>
+    <div id="main">
+        <input id="cityVal" type="search" placeholder="Enter a city name" />
+        <input id='submit' type="submit" value="Search" onclick="api()" />
+
+        <div class="wdetails"><ul id="output">
+            <li>
+                <h1 id="name"></h1>
+            </li>
+            <li>
+                <h1 id="temp"></h1>
+            </li>
+            <li>
+                <h1 id="description"></h1>
+            </li>
+        </ul>
+        <ul id="output1">
+            <li>
+                <h1 id="wind"></h1>
+            </li>
+            <li>
+                <h1 id="humidity"></h1>
+            </li>
+            <li>
+                <h1 id="pressure"></h1>
+            </li>
+        </ul>
+    </div>
+    </div>
+
+    <script type='text/javascript'>
+
+        function api() {
+            var city = document.getElementById("cityVal").value;
+            fetch("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=b87680397fcbbda1aecc099964c05dbd&units=metric")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function(myJson) {
+                    if(!myJson.name)
+                        
+                        alert('Enter valid CITY name');
+                    else
+                        document.querySelector("#name").innerHTML = myJson.name;
+                    document.querySelector("#description").innerHTML = myJson.weather[0].description;
+                    document.querySelector("#temp").innerHTML = "<i class=\"fa fa-thermometer-full\" aria-hidden=\"true\">&nbsp;</i>Temp : " + myJson.main.temp + "°C";
+                    document.querySelector("#wind").innerHTML = "<i class=\"fas fa-wind\" aria-hidden=\"true\">&nbsp;</i>Wind : " + myJson.wind.speed + "mph";
+                    document.querySelector("#humidity").innerHTML = "<i class=\"fas fa-humidity\" aria-hidden=\"true\">&nbsp;</i>Humidity : " + myJson.main.humidity +"g.kg-1";
+                    document.querySelector("#pressure").innerHTML = "Pressure : " + myJson.main.pressure + " Pas";
+
+                })
+                .catch(function (error) {
+                    console.log("Error: " + error);
+                });
+        }
+    </script>
+
+</body>
+
+</html>
