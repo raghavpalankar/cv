@@ -40,7 +40,7 @@ function showPosition(position) {
 <script type='text/javascript'>  
   function api(latitude,longitude){
 
-   fetch("http://api.openweathermap.org/data/2.5/air_pollution?lat="+latitude+"&lon="+longitude+"&appid=b87680397fcbbda1aecc099964c05dbd")
+   fetch("https://api.openweathermap.org/data/2.5/air_pollution?lat="+latitude+"&lon="+longitude+"&appid=b87680397fcbbda1aecc099964c05dbd")
      .then(function (response) {
        return response.json();
      })
