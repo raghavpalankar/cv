@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather</title>
+    <link rel="icon" href="/gig.gif" type="image/gif" size="16X16">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="stylesW.css" />
+    <style>
+        h1{
+            
+            color: white;
+            border-radius: 6px;
+            margin-bottom:7px;
+            
+          
+        }
+        #name{
+            background-color: #169424;
+            border-radius: 8px;
+            width: 102%;
+            
+        }
+        
+        h3{
+            color:#97CFE5;
+            padding:4px ;
+        }
+        #unit{
+            position: absolute;
+            left:96%;
+            top:41%;
+            background-color:transparent;
+            border: 0;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header class='top-links'>
+       
+        <a class='aba' href='graph.html'>Graph</a> 
+        <a class='aba' href='geocity.html'>Pollution Stat</a>
+        
+    </header>
+    <div id="main">
+        <input id="cityVal" type="search" placeholder="Enter a city name" />
+        <input id='submit' type="submit" value="Search" onclick="api()" />
+
+        <div class="wdetails">
+           
+                <h1 id="name"></h1>
+                <h3 id="description"></h3>
+                <h3 id="temp"></h3><button id ="unit" onclick="changeunit()"></button>
+                <h3 id="wind"></h3>
+                <h3 id="humidity"></h3>            
+                <h3 id="pressure"></h3>
+          
+       
+    </div>
+    </div>
+    <script type='text/javascript'>
+    var cel;
+    function changeunit(){
+        var far =parseInt((cel*1.8)+32);
+        document.querySelector("#temp").innerHTML = "<i class=\"fa fa-thermometer-full\" aria-hidden=\"true\">&nbsp;</i>Temp : " + far + "°F";
+
+    }
+    
+    
+
+        function api() {
+            var city = document.getElementById("cityVal").value;
+            fetch("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=b87680397fcbbda1aecc099964c05dbd&units=metric")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function(myJson) {
+                    if(!myJson.name)
+                        
+                        alert('Enter valid CITY name');
+                    else
+                        document.querySelector("#name").innerHTML = myJson.name;
+                    document.querySelector("#description").innerHTML = myJson.weather[0].description;
+                    document.querySelector("#temp").innerHTML = "<i class=\"fa fa-thermometer-full\" aria-hidden=\"true\">&nbsp;</i>Temp : " + myJson.main.temp + "°C";
+                    document.querySelector("#wind").innerHTML = "<i class=\"fas fa-wind\" aria-hidden=\"true\">&nbsp;</i>Wind : " + myJson.wind.speed + "mph";
+                    document.querySelector("#humidity").innerHTML = "<i class=\"fas fa-humidity\" aria-hidden=\"true\">&nbsp;</i>Humidity : " + myJson.main.humidity +"g.kg-1";
+                    document.querySelector("#pressure").innerHTML = "Pressure : " + myJson.main.pressure + " Pas";
+                    document.querySelector("#unit").innerHTML = "Unit";
+                    document.getElementById("unit").setAttribute("style","background-color:white;border-radius:3px;border:3px");
+                    
+                    cel = myJson.main.temp;
+                    
+                })
+                .catch(function (error) {
+                    console.log("Error: " + error);
+                });
+        }
+    </script>
+
+</body>
+
+    </script>
+    <script>
+
+        function placesearch(){
+            var input = document.getElementById('cityVal');
+            var autoplace = new google.maps.places.Autocomplete(input);
+        }
+  
+    </script>
+
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCJrRPqbXxBQf29ltNuSUlA8w6P2rCw8E&libraries=places&callback=placesearch">
+    
+</script>
+
+</body>
+
+</html>
