@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="geo.css"/>
+   
+    <style>
+      
+    </style>
+  </head>
+<body>
+<div id="trya">
+<button id="try"  onclick="getLocation()">AIR QUALITY📍</button>
+</div>
+
+<ul id="listInfo">
+  <li><h1 id=qui></h1></li>
+  <li><h3 id=AQI></h3></li>
+  <li><h3 id=co></h3></li>
+  <li><h3 id=no></h3></li>
+  <li><h3 id=no2></h3></li>
+  <li><h3 id=o3></h3></li>
+  <li><h3 id=so2></h3></li>
+  <li><h3 id=nh3></h3></li>
+</ul>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    alert("Geolocation is not supported by this browser.") ;
+  }
+}
+
+function showPosition(position) {
+  var latitude =  position.coords.latitude ; 
+  var longitude = position.coords.longitude;
+  api(longitude,longitude)
+}
+</script>
+
+<script type='text/javascript'>  
+  function api(latitude,longitude){
+
+   fetch("https://api.openweathermap.org/data/2.5/air_pollution?lat="+latitude+"&lon="+longitude+"&appid=b87680397fcbbda1aecc099964c05dbd")
+     .then(function (response) {
+       return response.json();
+     })
+     .then(function (myJson) {
+       var aqi = myJson.list[0].main.aqi;
+       if(aqi<=50){
+        document.querySelector("#qui").innerHTML = "GOOD AIR QUALITY";
+        alert('air quality in your locality is GOOD');
+       }
+       else if(50<aqi>300){
+        document.querySelector("#qui").innerHTML = "MODERATE AIR QUALITY";
+        alert('air quality in your locality is MODERATE')
+       }
+       else{
+        document.querySelector("#qui").innerHTML = "HAZARDUOS AIR QUALITY";
+        alert('air quality in your locality is HAZARDUOS')
+       }
+       document.querySelector("#AQI").innerHTML = "AQI : "+myJson.list[0].main.aqi;
+       document.querySelector("#co").innerHTML = "Co : "+myJson.list[0].components.co+"ppm";
+       document.querySelector("#no").innerHTML = "No : "+myJson.list[0].components.no+"ppm";
+       document.querySelector("#no2").innerHTML = "No2 : "+myJson.list[0].components.no2+"ppm";
+       document.querySelector("#o3").innerHTML = "o3 : "+myJson.list[0].components.o3+"ppm";
+       document.querySelector("#so2").innerHTML = "So2 : "+myJson.list[0].components.so2+"ppm";
+       document.querySelector("#nh3").innerHTML = "Nh3 : "+myJson.list[0].components.nh3+"ppm";
+     })
+     .catch(function (error) {
+       console.log("Error: " + error);
+     });
+  }
+</script>
+
+</body>
+</html>
