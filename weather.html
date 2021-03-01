@@ -74,7 +74,7 @@
 
         function api() {
             var city = document.getElementById("cityVal").value;
-            fetch("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=b87680397fcbbda1aecc099964c05dbd&units=metric")
+            fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=b87680397fcbbda1aecc099964c05dbd&units=metric")
                 .then(function (response) {
                     return response.json();
                 })
